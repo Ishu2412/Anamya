@@ -1,0 +1,190 @@
+<!-- views/submit-form.ejs
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Form</title>
+  </head>
+  <body>
+    <h1>Submit Form</h1>
+    <form action="/submit" method="post">
+      <label for="id1">ID1:</label>
+      <input type="text" id="id1" name="id1" required />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Information Form</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      fieldset {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+      }
+
+      legend {
+        font-weight: bold;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      /* Additional styling for QR code container */
+      #qrcode {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      /* Additional styling for file upload input */
+      input[type="file"] {
+        border: none;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Medical Information Form</h1>
+      <form id="medicalForm" action="/store" method="post">
+        <!-- Basic Information -->
+        <fieldset>
+          <legend>Basic Information</legend>
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="fullName" required />
+
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob" required />
+
+          <label for="gender">Gender:</label>
+          <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="contactNumber">Contact Number:</label>
+          <input type="tel" id="contactNumber" name="contactNumber" required />
+
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+        </fieldset>
+
+        <!-- Medical History -->
+        <fieldset>
+          <legend>Medical History</legend>
+          <label for="medicalConditions">Existing Medical Conditions:</label>
+          <textarea
+            id="medicalConditions"
+            name="medicalConditions"
+            rows="3"
+          ></textarea>
+
+          <label for="medications">Medications Currently Taking:</label>
+          <textarea id="medications" name="medications" rows="3"></textarea>
+
+          <label for="previousSurgeries"
+            >Previous Surgeries or Medical Procedures:</label
+          >
+          <textarea
+            id="previousSurgeries"
+            name="previousSurgeries"
+            rows="3"
+          ></textarea>
+        </fieldset>
+
+        <!-- Allergies -->
+        <fieldset>
+          <legend>Allergies</legend>
+          <label for="knownAllergies"
+            >Known Allergies (food, medication, environmental, etc.):</label
+          >
+          <textarea
+            id="knownAllergies"
+            name="knownAllergies"
+            rows="3"
+          ></textarea>
+        </fieldset>
+
+        <!-- Blood Type -->
+        <fieldset>
+          <legend>Blood Group</legend>
+          <label for="bloodType">Blood Group:</label>
+          <input type="text" id="bloodType" name="bloodType" />
+        </fieldset>
+
+        <button type="submit">Submit</button>
+        <% if(url) { %>
+        <img
+          src="<%= url %>"
+          alt="Uploaded Image"
+          style="max-width: 100%; border-radius: 8px; margin-top: 20px"
+        />
+        <% } %>
+      </form>
+    </div>
+  </body>
+</html>

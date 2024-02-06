@@ -1,0 +1,91 @@
+<!-- views/login.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anamya - Login</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .logo {
+        font-size: 36px;
+        font-weight: bold;
+        margin: 20px 0;
+        color: #333;
+      }
+      .form-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        width: 300px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .switch-text {
+        margin-top: 10px;
+        text-align: center;
+        color: #333;
+      }
+      .switch-link {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .switch-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">Anamya</div>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form action="/login" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p class="switch-text">
+        Don't have an account?
+        <a href="/signup" class="switch-link">Signup here</a>.
+      </p>
+    </div>
+  </body>
+</html>
